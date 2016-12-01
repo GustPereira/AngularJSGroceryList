@@ -1,0 +1,53 @@
+<div class="container groceries-panel" zoom-in>
+	<div class="row">
+		<div class="col-lg-12">
+			<div id="user-menu">
+
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="true">
+    {{ userName }} <i class="fa fa-caret-down" data-toggle="dropdown" aria-hidden="true"></i>
+  </button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li ng-click="logOut()"><a><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+					</ul>
+				</div>
+			</div>
+			<h1 class="page-header">
+				<img src="../images/logo.png" alt="Grocery list">
+			</h1>
+		</div>
+	</div>
+	<!-- /.row -->
+	<div class="row">
+		<div id="groceries-content">
+			<ul data-as-sortable="dragControlListeners" data-ng-model="itemList">
+				<li style="background-color: {{colors[item.color]}}" data-ng-repeat="item in itemList" data-as-sortable-item id="{{item.id}}" class="groceries-row">
+					<div class="groceries-item" data-as-sortable-item-handle>
+						<div class="item-action">
+							<i class="fa fa-paint-brush" ng-click="colorItem(item)" aria-hidden="true"></i>
+							<i class="fa" ng-class="{'fa-trash': !item.loading, 'fa-refresh': item.loading, 'fa-spin': item.loading}" ng-click="removesItem(item)" aria-hidden="true"></i>
+						</div>
+						<div class="item-handle">
+							<i class="fa fa-arrows-v" aria-hidden="true"></i>
+						</div>
+						<div class="item-check">
+							<i class="fa" ng-class="{'fa-square-o': !item.check, 'fa-check-square-o': item.check}" ng-click="checkItem(item)" aria-hidden="true"></i>
+						</div>
+						<div class="item-text">
+							<input type="text" ng-class="{check: item.check}" ng-model="item.text" ng-change="changed(item)" ng-model-options="{debounce: 1000}">
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /.row -->
+	<div class="row">
+		<div class="add-button" ng-click="addNewItem()">
+			+ Add new item
+		</div>
+	</div>
+	<!-- /.row -->
+</div>
+<!-- /#container -->

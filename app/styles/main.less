@@ -1,0 +1,206 @@
+@import "variables.less";
+// Global Styles
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {    
+    font-family: 'Roboto', sans-serif;
+    color: @main;
+}
+
+body{
+    background-color: #E0E1DD;
+}
+
+*:focus{
+    outline: none;
+ }
+
+.groceries-panel{
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,.25);
+    margin-top: 50px;
+    margin-bottom: 10px;
+    background-color: #fdfd86;
+}
+
+.page-header{
+    float: left;
+    border-color: transparent;
+    position: absolute;
+    margin-top: -30px;
+
+    > img{
+        max-height: 100px;
+    }
+}
+
+#user-menu{
+    float: right;
+    padding-bottom: 9px;
+    margin: 10px 0 20px;
+
+    >div>button{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        &:active{
+            box-shadow: none;
+        }
+    }
+    >div>ul{
+        background-color: #fdfd86;
+
+        >li{
+            cursor: pointer;
+
+            >a:hover{
+                background-color: transparent;
+                color: @hover;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .page-header{
+        margin-top: 10px;
+
+        > img{
+            max-height: 60px;
+        }
+    }
+
+    #user-menu{
+        margin: 20px 0 10px;
+    }
+}
+
+#groceries-content{
+    > ul{
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.groceries-item{
+    border: none;
+    line-height: 34px;
+    font-size: 16px;
+    color: @main;
+    padding: 4px;
+
+    > .item-text{
+        overflow: auto;
+            > input{
+                background-color: transparent;
+                border: none;
+                width: 100%;
+                padding: 0 10px;
+
+                &.check{
+                    text-decoration: line-through;
+                }
+            }
+    }
+
+    > .item-action{
+        float: right;
+		width: 64px;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none;   /* Chrome/Safari/Opera */
+        -khtml-user-select: none;    /* Konqueror */
+        -moz-user-select: none;      /* Firefox */
+        -ms-user-select: none;       /* Internet Explorer/Edge */
+        user-select: none;           /* Non-prefixed version, currently
+                                        not supported by any browser */
+        > .fa{
+            line-height: 34px;
+            font-size: 16px;
+            color: @main;
+            padding: 0 7px;
+
+            &:hover{
+                -webkit-transition: 0.5s ease; /* For Safari 3.1 to 6.0 */
+                transition: 0.5s ease;
+                color: @hover;
+            }
+        }
+    }
+
+    > .item-check{
+        float: left;
+		width: 20px;
+        > .fa{
+            padding: 8px;
+            color: @main;
+
+            &:hover{
+                -webkit-transition: 0.5s ease; /* For Safari 3.1 to 6.0 */
+                transition: 0.5s ease;
+                color: @hover;
+            }
+        }
+    }
+
+    > .item-handle{
+        float: left;
+		width: 20px;
+        > .fa{
+            padding: 8px;
+            color: @main;
+
+            &:hover{
+                -webkit-transition: 0.5s ease; /* For Safari 3.1 to 6.0 */
+                transition: 0.5s ease;
+                color: @hover;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .groceries-panel{
+        margin-top: 0px;
+    }
+}
+
+.add-button{
+    line-height: 34px;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 20px 5px 20px;
+    border-bottom: 1px solid @main;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                    not supported by any browser */ 
+    
+    &:hover{
+        -webkit-transition: 0.5s ease; /* For Safari 3.1 to 6.0 */
+        transition: 0.5s ease;
+        color: @hover;
+    }
+
+}
+
+.as-sortable-placeholde{
+    background-color: darken(#fdfd86, 80%);
+    min-height: 42px;
+    width: 100%;
+}
+
+
+// Animations
+
+.full-invisible {
+  visibility: hidden !important; }
+  .full-invisible * {
+    visibility: hidden !important; }
+
+
+
+
+@import "mixins.less";

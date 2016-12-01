@@ -1,0 +1,48 @@
+<div class="errorMessage alert alert-danger full-invisible animated">
+    <strong><i class="fa fa-exclamation-circle" aria-hidden="true"></i></strong> {{ error }}
+</div>
+<div id="wrapper" class="container login-panel" zoom-in>    
+    <div class="card card-container">
+        <div class="text-center"><img src="../images/logo.png" alt="Grocery list"></div>
+
+        <div ng-if="!newAccount && !forgotPassword">
+            <a ng-click="account()" class="login-link login-link-new">
+                Create an account.
+            </a>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" ng-model="user.email" required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="user.password" required>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-click="loginUser()">Log in</button>
+            </form><!-- /form -->
+            <a ng-click="password()" class="login-link">
+                Forgot your password?
+            </a>        
+        </div>
+
+        <div ng-if="newAccount && !forgotPassword">
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" ng-model="user.email" required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="user.password" required>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Confirm password" ng-model="user.confirmPassword" required>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-click="registerUser()">Register</button>
+            </form><!-- /form -->
+            <a ng-click="account()" class="login-link">
+                Already have an account?
+            </a>
+        </div>
+
+        <div ng-if="forgotPassword">
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" ng-model="user.email" required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="New password" ng-model="user.password" required>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-click="newPassword()">Recover</button>            
+            </form><!-- /form -->
+            <a ng-click="password()" class="login-link">
+                Already have an account?
+            </a>
+        </div>
+    </div><!-- /card-container -->    
+</div><!-- /container -->
